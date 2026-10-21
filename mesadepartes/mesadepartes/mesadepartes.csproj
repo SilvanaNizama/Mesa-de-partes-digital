@@ -73,6 +73,9 @@
     <Compile Include="GestorExpedientes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormRegistro.resx">
+      <DependentUpon>FormRegistro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGestion.resx">
       <DependentUpon>FormGestion.cs</DependentUpon>
     </EmbeddedResource>
