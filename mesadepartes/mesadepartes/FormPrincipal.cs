@@ -16,5 +16,22 @@ namespace mesadepartes
         {
             InitializeComponent();
         }
+
+        private void btnRegistro_Click(object sender, EventArgs e)
+        {
+            FormRegistro registro = new FormRegistro();
+            registro.ShowDialog();
+        }
+
+        private void btnGestion_Click(object sender, EventArgs e)
+        {
+            FormGestion gestion = new FormGestion();
+            gestion.ShowDialog();
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
