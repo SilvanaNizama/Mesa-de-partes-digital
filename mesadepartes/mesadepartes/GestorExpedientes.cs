@@ -75,20 +75,64 @@
             cont++;
             return true;
         }
-
-        // Intercambia de lugar los datos de dos expedientes (en todos los arreglos)
         public static void Intercambiar(int i, int j)
         {
-            // TODO
+            string temp;
+            temp = codigos[i]; codigos[i] = codigos[j]; codigos[j] = temp;
+            temp = dnis[i]; dnis[i] = dnis[j]; dnis[j] = temp;
+            temp = nombres[i]; nombres[i] = nombres[j]; nombres[j] = temp;
+            temp = apellidos[i]; apellidos[i] = apellidos[j]; apellidos[j] = temp;
+            temp = tipos[i]; tipos[i] = tipos[j]; tipos[j] = temp;
+            temp = asuntos[i]; asuntos[i] = asuntos[j]; asuntos[j] = temp;
+            temp = fechas[i]; fechas[i] = fechas[j]; fechas[j] = temp;
         }
 
-        // Ordenamiento burbuja por código, usando Intercambiar
         public static void OrdenarBurbuja()
         {
-            // TODO
+            for (int i = 0; i < cont - 1; i++)
+            {
+                for (int j = 0; j < cont - 1 - i; j++)
+                {
+                    if (string.Compare(codigos[j], codigos[j + 1]) > 0)
+                    {
+                        Intercambiar(j, j + 1);
+                    }
+                }
+            }
         }
-
-        public static void GuardarEnArchivo() { /* TODO */ }
-        public static void CargarDesdeArchivo() { /* TODO */ }
+        public static void GuardarEnArchivo()
+        {
+            string[] lineas = new string[cont];
+            for (int i = 0; i < cont; i++)
+            {
+                lineas[i] = codigos[i] + "|" + dnis[i] + "|" + nombres[i] + "|" +
+                            apellidos[i] + "|" + tipos[i] + "|" + asuntos[i] + "|" + fechas[i];
+            }
+            System.IO.File.WriteAllLines("expedientes.txt", lineas);
+        }
+        public static void CargarDesdeArchivo()
+        {
+            if (!System.IO.File.Exists("expedientes.txt"))
+            {
+                return;
+            }
+            string[] lineas = System.IO.File.ReadAllLines("expedientes.txt");
+            cont = 0;
+            foreach (string linea in lineas)
+            {
+                string[] d = linea.Split('|');
+                if (d.Length == 7 && cont < MAX)
+                {
+                    codigos[cont] = d[0];
+                    dnis[cont] = d[1];
+                    nombres[cont] = d[2];
+                    apellidos[cont] = d[3];
+                    tipos[cont] = d[4];
+                    asuntos[cont] = d[5];
+                    fechas[cont] = d[6];
+                    cont++;
+                }
+            }
+        }
     }
 }
