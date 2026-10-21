@@ -2,7 +2,7 @@
 {
     public static class GestorExpedientes
     {
-        // Un arreglo por cada dato (arreglos paralelos)
+        // Un arreglo por cada dato 
         public const int MAX = 100;
         public static string[] codigos = new string[MAX];
         public static string[] dnis = new string[MAX];
@@ -12,7 +12,7 @@
         public static string[] asuntos = new string[MAX];
         public static string[] fechas = new string[MAX];
 
-        // Cantidad de expedientes registrados (también es la siguiente posición libre)
+        // Cantidad de expedientes registrados 
         public static int cont = 0;
 
         // Devuelve true si ningún campo obligatorio está vacío
@@ -59,10 +59,21 @@
 
         // Guarda un expediente en la siguiente posición libre
         public static bool Registrar(string codigo, string dni, string nombre, string apellido,
-                                     string tipo, string asunto, string fecha)
+                               string tipo, string asunto, string fecha)
         {
-            // TODO
-            return false;
+            if (cont >= MAX)
+            {
+                return false; // el arreglo está lleno
+            }
+            codigos[cont] = codigo;
+            dnis[cont] = dni;
+            nombres[cont] = nombre;
+            apellidos[cont] = apellido;
+            tipos[cont] = tipo;
+            asuntos[cont] = asunto;
+            fechas[cont] = fecha;
+            cont++;
+            return true;
         }
 
         // Intercambia de lugar los datos de dos expedientes (en todos los arreglos)
