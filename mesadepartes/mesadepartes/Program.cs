@@ -16,6 +16,7 @@ namespace mesadepartes
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            GestorExpedientes.CargarDesdeArchivo();
             Application.Run(new FormLogin());
         }
     }

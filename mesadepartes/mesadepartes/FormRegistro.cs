@@ -65,6 +65,7 @@ namespace mesadepartes
             if (GestorExpedientes.Registrar(codigo, dni, nombre, apellido, tipo, asunto, fecha))
             {
                 MessageBox.Show("Expediente registrado correctamente");
+                GestorExpedientes.GuardarEnArchivo();
                 LimpiarCampos();
             }
             else

@@ -2,7 +2,7 @@
 {
     public static class GestorExpedientes
     {
-        // Un arreglo por cada dato 
+        // arreglo por cada dato 
         public const int MAX = 100;
         public static string[] codigos = new string[MAX];
         public static string[] dnis = new string[MAX];
@@ -44,7 +44,7 @@
             return true;
         }
 
-        // Búsqueda secuencial: devuelve la posición del código, o -1 si no existe
+        // devuelve la posición del código, o -1 si no existe
         public static int BuscarPorCodigo(string codigo)
         {
             for (int i = 0; i < cont; i++)
