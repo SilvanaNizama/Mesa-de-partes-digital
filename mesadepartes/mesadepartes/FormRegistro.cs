@@ -90,5 +90,20 @@ namespace mesadepartes
             dtpFecha.Value = DateTime.Today;
             txtCodigo.Focus();
         }
+
+        private void txtDni_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNombres_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtApellidos_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
